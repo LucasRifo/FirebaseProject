@@ -28,12 +28,6 @@
   min-height: 100vh;
 }
 
-.bg-image {
-  background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
-  background-size: cover;
-  background-position: center;
-}
-
 .login-heading {
   font-weight: 300;
 }
@@ -62,6 +56,19 @@ section{
   color: goldenrod;
   transition:all ease-in-out .3s
 }
-.text-warning{
+.text-outlined{
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.account-block {
+  margin-top: 0.5cm;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15rem;
+  width: 25rem;
+  position: relative;
+  border-radius: 10rem;
+}
+.fixed-col{
+  width: 21rem;
 }

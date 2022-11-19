@@ -95,17 +95,6 @@
         </ul>
   
         <ul class="d-flex justify-content-center ms-auto">
-          <button type="button" class="btn btn-outline-white btn-rounded" onclick="darkmode()">Toggle dark mode</button>
-          <script>
-            function darkmode() {
-              var element = document.body;
-              element.classList.toggle("dark-mode");
-              var element = document.querySelector('#tabla1');
-              element.classList.toggle("dark-mode");
-              var element = document.querySelector('#tabla2');
-              element.classList.toggle("dark-mode");
-            }
-          </script>
           <button type="button" class="btn btn-outline-warning btn-rounded" id="logout">
             Cerrar Sesión
           </button>
@@ -118,7 +107,7 @@
   <!-- Navbar -->
 
   <!-- Tabs content -->
-  <div class="tab-content" id="ex1-content">
+  <div class="tab-content bg-dark" id="ex1-content">
     <!--TAB 1-->
     <div
       class="tab-pane fade show active"
@@ -187,17 +176,34 @@
     <!--TAB 2-->
     <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
       <!--TABLA 1-->
-      <table class="table align-middle mb-0 " id="tabla1">
+      <table class="table align-middle mb-0 " style="margin-left: 2rem;margin-right: 2rem;" id="tablaproductos">
         <thead class="">
           <tr>
-            <th>Nombre</th>
-            <th>Especialidad</th>
-            <th>Sexo</th>
-            <th>Número de Contacto</th>
+            <th class="text-warning">Nombre</th>
+            <th class="text-warning">Viene con</th>
+            <th class="text-warning">Precio</th>
+            <th class="text-warning"></th>
           </tr>
         </thead>
-        <tbody id="tabla1-body">
-          
+        <tbody id="tablaproductos-body">
+          <tr>
+            <td>
+              <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
+              <img src="Ely-finale1.png"
+              style="padding: 0;
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 15rem;
+              width: 25rem;
+              position: relative;
+              border-radius: 10rem;" alt="">
+            </td>
+            <td class="text-warning">Añadido extra</td>
+            <td class="text-warning">$5000</td>
+            <td>
+              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
