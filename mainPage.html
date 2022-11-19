@@ -95,7 +95,7 @@
         </ul>
   
         <ul class="d-flex justify-content-center ms-auto">
-          <button class="btn btn-outline-success btn-rounded btn-carro" type="button"><i class="fa fa-cart-shopping"></i>
+          <button class="btn btn-outline-success btn-rounded btn-carro" type="button" onclick="location.href='perfil.html'"><i class="fa fa-cart-shopping"></i>
             Carro de Compras
           </button>
           <button type="button" class="btn btn-outline-warning btn-rounded" id="logout">
@@ -147,21 +147,21 @@
             <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
             <div class="carousel-caption d-none d-md-block">
               <h5 class="text-warning text-outlined">Bienvenido a LoginApp</h5>
-              <p class="text-warning">Disfrute de su visita</p>
+              <p class="text-warning text-outlined">Disfrute de su visita</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
             <div class="carousel-caption d-none d-md-block">
-              <h5 class="text-warning">Acceda a la pestaña Doctores</h5>
-              <p class="text-warning">Para contactar a un profesional</p>
+              <h5 class="text-warning text-outlined">Acceda a la pestaña Doctores</h5>
+              <p class="text-warning text-outlined">Para contactar a un profesional</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
             <div class="carousel-caption d-none d-md-block">
-              <h5 class="text-warning">Acceda a la pestaña Pacientes</h5>
-              <p class="text-warning">Para verificar el resultado de su examen</p>
+              <h5 class="text-warning text-outlined">Acceda a la pestaña Pacientes</h5>
+              <p class="text-warning text-outlined">Para verificar el resultado de su examen</p>
             </div>
           </div>
         </div>
@@ -194,7 +194,29 @@
               <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
               <img class="product-image" src="Ely-finale1.png" alt="">
             </td>
-            <td class="text-warning">Añadido extra</td>
+            <td class="text-warning">100gr Papas fritas</td>
+            <td class="text-warning">$5000</td>
+            <td>
+              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="text-warning" style="margin-left:5rem;">Completo As</p>
+              <img class="product-image" src="Ely-finale1.png" alt="">
+            </td>
+            <td class="text-warning">100gr Papas fritas</td>
+            <td class="text-warning">$5000</td>
+            <td>
+              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="text-warning" style="margin-left:5rem;">Not Completo</p>
+              <img class="product-image" src="Ely-finale1.png" alt="">
+            </td>
+            <td class="text-warning">100gr Papas fritas</td>
             <td class="text-warning">$5000</td>
             <td>
               <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
@@ -206,37 +228,29 @@
     <!--TAB 3-->
     <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
       <!--TABLA 2-->
-      <table class="table align-middle mb-0 " id="tabla2">
-        <thead>
+      <table class="table align-middle mb-0 " style="margin-left: 2rem;margin-right: 2rem;" id="tablapromociones">
+        <thead class="">
           <tr>
-            <th>Nombre</th>
-            <th>Datos</th>
-            <th>Sexo</th>
-            <th>Número</th>
+            <th class="text-warning">Nombre</th>
+            <th class="text-warning">Viene con</th>
+            <th class="text-warning">Precio</th>
+            <th class="text-warning"></th>
           </tr>
         </thead>
-        <tbody id="tabla2-body">
+        <tbody id="tablapromociones-body">
           <tr>
             <td>
-              <div class="d-flex align-items-center">
-                <img
-                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                    alt=""
-                    class="product-image"
-                    />
-                <div class="ms-3">
-                  <p class="fw-bold mb-1">John Doe</p>
-                </div>
-              </div>
+              <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
+              <img class="product-image" src="Ely-finale1.png" alt="">
             </td>
+            <td class="text-warning">
+              <p>100gr Papas fritas</p>
+              <p>Gaseosa 300ml</p>
+            </td>
+            <td class="text-warning">$5000</td>
             <td>
-              <p class="fw-normal mb-1">27 años</p>
-              <p class="text-muted mb-0">Enfermedad 1</p>
+              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
             </td>
-            <td>
-              <span class="badge badge-success rounded-pill d-inline">Masculino</span>
-            </td>
-            <td>98765432</td>        
           </tr>
         </tbody>
       </table>

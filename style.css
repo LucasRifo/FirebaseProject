@@ -85,3 +85,7 @@ section{
   color: white;
   background-color: green;
 }
+.btn-pagar:hover{
+  color: white;
+  background-color:#c68a3b;
+}
