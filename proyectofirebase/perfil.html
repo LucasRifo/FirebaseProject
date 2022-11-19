@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="style.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <section class="vh-100 gradient-custom" >
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-6 mb-4 mb-lg-0">
+              <div class="card mb-3" style="border-radius: .5rem;">
+                <div class="row g-0">
+                  <div class="col-md-4 bg-dark text-center text-warning"
+                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                      alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                    <h5>Marie Horwitz</h5>
+                    <button style="max-height: 5rem;" id="btn-edit" href="#editperfil" class="link-danger button"
+                    data-mdb-toggle="modal" data-mdb-target="#editperfil"><i class="far fa-edit mb-1" ></i></button>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body p-10 bg-dark text-warning">
+                      <h6>Perfil de usuario</h6>
+                      <hr class="mt-0 mb-4">
+                      <div class="row pt-1">
+                        <div class="col-10 mb-3">
+                          <h6>Email</h6>
+                          <p class="text-muted">info@example.com</p>
+                        </div>
+                        <div class="col-10 mb-3">
+                          <h6>Domicilio</h6>
+                          <p class="text-muted">info domicilio</p>
+                        </div>
+                        <div class="col-10 mb-3">
+                          <h6>Número de contacto</h6>
+                          <p class="text-muted">+569 87654321</p>
+                        </div>
+                      </div>
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- Modal -->
+    <div class="modal fade" id="editperfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark ">
+            <h5 class="modal-title text-warning" id="exampleModalLabel">Editar información</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-dark ">
+            <form id="edit-form">
+                <!-- City input -->
+                <div class="form-outline mb-4">
+                <input type="text" id="edit-email" class="form-control text-warning" placeholder="Ingrese su email" required />
+                <label class="form-label text-warning" for="form2Example1">Email</label>
+                </div>
+
+                <!-- Region input -->
+                <div class="form-outline mb-4">
+                <input type="text" id="edit-dom" class="form-control text-warning" placeholder="Ingrese su domicilio"
+                    required />
+                <label class="form-label text-warning" for="form2Example2">Domicilio</label>
+                </div>
+                
+                <!-- Pobl input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="edit-num" class="form-control text-warning" placeholder="Ingrese su número de contacto"
+                    required />
+                    <label class="form-label text-warning" for="form2Example2">Número de contacto</label>
+                </div>
+
+                <!-- Button Submit -->
+                <button type="submit" class="btn btn-outline-success btn-dark btn-rounded" id="btn-edit-perfil">Guardar información</button>
+                <button type="button" class="btn btn-outline-danger btn-dark btn-rounded">Cancelar</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>  
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+    
+</body>
+</html>

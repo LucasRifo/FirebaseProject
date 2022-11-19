@@ -1,0 +1,67 @@
+.gradient-custom {
+    background: -webkit-linear-gradient(to right, chocolate, goldenrod);
+    background: linear-gradient(to right, chocolate, goldenrod)
+    }
+.button {
+    background-color:transparent;
+    border: 2px solid#c68a3b;
+    color:#c68a3b;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+.modal-header{
+  border-color: rgb(51, 45, 45);
+}
+.modal-content{
+  background-color: rgb(51, 45, 45);
+  color: goldenrod;
+  border-color: goldenrod
+}
+
+.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  height: 100%;
+  margin: 0;
+}
+section{
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+}
+
+.dark-mode {
+  background-color: rgb(51, 45, 45);
+  color: goldenrod;
+  transition:all ease-in-out .3s
+}
+.text-warning{
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
