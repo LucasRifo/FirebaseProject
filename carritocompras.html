@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="carritostyle.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrito de compras</title>
+</head>
+<body>
+    <section class="gradient-custom " >
+        <div class="container h-100 py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+              <div class="card shopping-cart" style="border-radius: 15px;">
+                <div class="card-body text-warning bg-dark">
+      
+                  <div class="row">
+                    <div class="col-lg-6 px-5 py-4">
+      
+                      <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Tu pedido</h3>
+      
+                      <div class="d-flex align-items-center mb-5">
+                        <div class="flex-shrink-0">
+                          <img src="Completo_italiano.jpg"
+                          style="width: 10rem; height: 7rem"
+                          class="rounded-circle product-image" alt="Generic placeholder image">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          
+                          <h5 class="text-warning ">COMPLETO 1</h5>
+                          <h6 style="color: #9e9e9e;">Añadidos:</h6>
+                          <div class="d-flex align-items-center">
+                            <p class="fw-bold mb-0 me-5 pe-3">799$</p>
+                            <div class="def-number-input number-input">
+                              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                class="minus"></button>
+                              <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
+                                type="number">
+                              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                class="plus"></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="d-flex align-items-center mb-5">
+                        <div class="flex-shrink-0">
+                          <img src="Completo_italiano.jpg"
+                          style="width: 10rem; height: 7rem"
+                          class="rounded-circle product-image" alt="Generic placeholder image">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          
+                          <h5 class="text-warning">COMPLETO 2</h5>
+                          <h6 style="color: #9e9e9e;">Añadidos:</h6>
+                          <div class="d-flex align-items-center">
+                            <p class="fw-bold mb-0 me-5 pe-3">239$</p>
+                            <div class="def-number-input number-input">
+                              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                class="minus"></button>
+                              <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
+                                type="number">
+                              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                class="plus"></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="d-flex align-items-center mb-5">
+                        <div class="flex-shrink-0">
+                          <img src="Completo_italiano.jpg"
+                             style="width: 10rem; height: 7rem"
+                            class="rounded-circle product-image" alt="Generic placeholder image">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          
+                          <h5 class="text-warning">COMPLETO 3</h5>
+                          <h6 style="color: #9e9e9e;">Añadidos:</h6>
+                          <div class="d-flex align-items-center">
+                            <p class="fw-bold mb-0 me-5 pe-3">659$</p>
+                            <div class="def-number-input number-input">
+                              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                class="minus"></button>
+                              <input class="quantity fw-bold text-black" min="0" name="quantity" value="2"
+                                type="number">
+                              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                class="plus"></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <hr class="mb-4" style="height: 2px; background-color: goldenrod; opacity: 1;">
+      
+                      
+                      <div class="d-flex justify-content-between p-2 mb-2">
+                        <h5 class="fw-bold mb-0">Total:</h5>
+                        <h5 class="fw-bold mb-0">2261$</h5>
+                      </div>
+      
+                    </div>
+                    <div class="col-lg-6 px-5 py-4">
+      
+                      <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Pagar</h3>
+      
+                      <form class="mb-5">
+      
+                        <div class="form-outline mb-5">
+                          <input type="text" id="typeText" class="form-control form-control-lg text-warning" siez="17"
+                            value="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                          <label class="form-label text-warning" for="typeText">Número de tarjeta</label>
+                        </div>
+      
+                        <div class="form-outline mb-5">
+                          <input type="text" id="typeName" class="form-control form-control-lg text-warning" siez="17"
+                            value="John Smith" />
+                          <label class="form-label text-warning" for="typeName">Nombre de la tarjeta</label>
+                        </div>
+      
+                        <div class="row">
+                          <div class="col-md-6 mb-5">
+                            <div class="form-outline">
+                              <input type="text" id="typeExp" class="form-control form-control-lg text-warning" value="01/22"
+                                size="7" id="exp" minlength="7" maxlength="7" />
+                              <label class="form-label text-warning" for="typeExp">Exp</label>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-5">
+                            <div class="form-outline">
+                              <input type="password" id="typeText" class="form-control form-control-lg text-warning"
+                                value="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                              <label class="form-label text-warning" for="typeText">Cvv</label>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit <a
+                            href="#!" class="text-warning">obcaecati sapiente</a>.</p>
+                        <div class="" style="text-align: center;">
+                            <button type="button" class="btn btn-outline-warning btn-dark btn-rounded" style="width: 25rem;">Confirmar compra</button>
+                        </div>
+                        <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
+                          <a href="#!" class="text-warning"><i class="fas fa-angle-left me-2 text-war"></i>Volver a Menú</a>
+                        </h5>
+      
+                      </form>
+      
+                    </div>
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+</body>
+</html>
