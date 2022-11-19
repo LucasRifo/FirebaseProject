@@ -23,7 +23,7 @@
     <!-- CSS -->
   <link rel="stylesheet" href="./style.css"/>
 </head>
-<body>
+<body class="gradient-custom">
     <!-- Navbar -->
 <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
     <!-- Container wrapper -->
@@ -77,7 +77,7 @@
               role="tab"
               aria-controls="ex1-tabs-2"
               aria-selected="false"
-              >Doctores</a
+              >Menú</a
             >
           </li>
           <li class="nav-item" role="presentation">
@@ -89,12 +89,15 @@
               role="tab"
               aria-controls="ex1-tabs-3"
               aria-selected="false"
-              >Pacientes</a
+              >Promociones</a
             >
           </li>
         </ul>
   
         <ul class="d-flex justify-content-center ms-auto">
+          <button type="button" class="btn btn-outline-light btn-rounded" id="tupuma">
+            Carro de Compras
+          </button>
           <button type="button" class="btn btn-outline-warning btn-rounded" id="logout">
             Cerrar Sesión
           </button>
@@ -143,7 +146,7 @@
           <div class="carousel-item active">
             <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
             <div class="carousel-caption d-none d-md-block">
-              <h5 class="text-warning">Bienvenido a LoginApp</h5>
+              <h5 class="text-warning text-outlined">Bienvenido a LoginApp</h5>
               <p class="text-warning">Disfrute de su visita</p>
             </div>
           </div>
@@ -189,14 +192,7 @@
           <tr>
             <td>
               <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
-              <img src="Ely-finale1.png"
-              style="padding: 0;
-              background-repeat: no-repeat;
-              background-size: cover;
-              height: 15rem;
-              width: 25rem;
-              position: relative;
-              border-radius: 10rem;" alt="">
+              <img class="product-image" src="Ely-finale1.png" alt="">
             </td>
             <td class="text-warning">Añadido extra</td>
             <td class="text-warning">$5000</td>

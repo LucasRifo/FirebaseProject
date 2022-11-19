@@ -72,3 +72,12 @@ section{
 .fixed-col{
   width: 21rem;
 }
+.product-image{
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15rem;
+  width: 25rem;
+  position: relative;
+  border-radius: 10rem;
+}
