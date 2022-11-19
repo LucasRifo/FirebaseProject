@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- MDB -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+    rel="stylesheet"
+  />
+  <!-- CSS Login -->
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    <!--Background-->
+    <section class="100% gradient-custom ">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <form id="login-form">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-warning" style="border-radius: 1rem;" id="signup-form">
+                  <div class="card-body p-5 text-center">
+        
+                    <div class="mb-md-5 mt-md-4 pb-5">
+        
+                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                      <p class="text-white-50 mb-5">Please enter your login and password!</p>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="email" id="email-input" class="form-control form-control-lg" />
+                        <label class="form-label" for="Email_input">Email</label>
+                      </div>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="password" id="pass-input" class="form-control form-control-lg" />
+                        <label class="form-label" for="pass_input">Password</label>
+                      </div>
+        
+                      <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+        
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                      <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                        <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg" id="facebook_login"></i></a>
+                        <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2" id="twitter_login"></i></a>
+                        <a href="#!" class="text-white"><i class="fab fa-google fa-lg" id="google_login"></i></a>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="mb-0">Don't have an account?
+                          <a href="#signupModal!"
+                          class="text-white-50 fw-bold"
+                          data-mdb-toggle="modal"
+                          data-mdb-target="#signupModal">Sign Up</a>
+                      </p>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registering</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="signupform">
+                  <!-- EMAIL -->
+                  <div class="form-outline mb-4">
+                    <input type="email" id="signup-email" class="form-control form-control-lg text-white" placeholder="Sign your Email" required/>
+                    <label class="form-label text-white" for="form2Example1">Email</label>
+                  </div>
+                  <!-- PASS -->
+                  <div class="form-outline mb-4">
+                    <input type="password" id="signup-pass" class="form-control form-control-lg text-white" placeholder="Input your password" required/>
+                    <label class="form-label text-white" for="form2Example2">Password</label>
+                  </div>
+                  <!-- BUTTONS -->
+                  <button type="submit" class="btn-outline-warning btn-dark btn-lg px-5">Save changes</button>
+                  <button type="button" class="btn-outline-light btn-dark btn-lg px-5" data-mdb-dismiss="modal">Cancel</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+    <!--Scripts-->
+      <!-- MDB -->
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+      ></script>
+      <!-- Main -->
+      <script src="./Login.js" type="module"></script>
+    
+</body>
+</html>
