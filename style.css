@@ -81,3 +81,7 @@ section{
   position: relative;
   border-radius: 10rem;
 }
+.btn-carro:hover{
+  color: white;
+  background-color: green;
+}
