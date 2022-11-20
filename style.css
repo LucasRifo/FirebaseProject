@@ -89,3 +89,13 @@ section{
   color: white;
   background-color:#c68a3b;
 }
+.profile-icon{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10rem;
+  transition:0.3s;
+}
+.profile-icon:hover{
+  opacity: 0.3;
+  cursor: pointer;
+}

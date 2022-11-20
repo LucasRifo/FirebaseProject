@@ -23,9 +23,9 @@
   <!-- CSS Login -->
   <link rel="stylesheet" href="./style.css"/>
 </head>
-<body>
+<body class="gradient-custom">
     <!--Background-->
-    <section class="100% gradient-custom ">
+    <section >
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <form id="login-form">
@@ -35,8 +35,8 @@
         
                     <div class="mb-md-5 mt-md-4 pb-5">
         
-                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                      <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                      <h2 class="fw-bold mb-2 text-uppercase">Inicio de Sesión</h2>
+                      <p class="text-white-50 mb-5">Por favor ingrese sus credenciales!</p>
         
                       <div class="form-outline form-white mb-4">
                         <input type="email" id="email-input" class="form-control form-control-lg" />
@@ -45,12 +45,12 @@
         
                       <div class="form-outline form-white mb-4">
                         <input type="password" id="pass-input" class="form-control form-control-lg" />
-                        <label class="form-label" for="pass_input">Password</label>
+                        <label class="form-label" for="pass_input">Contraseña</label>
                       </div>
         
-                      <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                      <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">¿Olvidó su contraseña?</a></p>
         
-                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Iniciar Sesión</button>
                       <div class="d-flex justify-content-center text-center mt-4 pt-1">
                         <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg" id="facebook_login"></i></a>
                         <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2" id="twitter_login"></i></a>
@@ -58,11 +58,11 @@
                       </div>
                     </div>
                     <div>
-                      <p class="mb-0">Don't have an account?
+                      <p class="mb-0">¿No tienes una cuenta?
                           <a href="#signupModal!"
-                          class="text-white-50 fw-bold"
+                          class="text-white-50"
                           data-mdb-toggle="modal"
-                          data-mdb-target="#signupModal">Sign Up</a>
+                          data-mdb-target="#signupModal"><u>Regístrate, es gratis!</u></a>
                       </p>
                     </div>
         
@@ -77,24 +77,40 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Registering</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Registrando nueva cuenta</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <form id="signupform">
+                  <div class="form-outline mb-4">
+                    <input type="text" id="signup-name" class="form-control form-control-lg text-white" placeholder="Ingrese su Nombre" required/>
+                    <label class="form-label text-white" for="form2Example1">Nombre</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="signup-name" class="form-control form-control-lg text-white" placeholder="Ingrese su Apellido" required/>
+                    <label class="form-label text-white" for="form2Example1">Apellido</label>
+                  </div>
                   <!-- EMAIL -->
                   <div class="form-outline mb-4">
-                    <input type="email" id="signup-email" class="form-control form-control-lg text-white" placeholder="Sign your Email" required/>
+                    <input type="email" id="signup-email" class="form-control form-control-lg text-white" placeholder="Ingrese su Email" required/>
                     <label class="form-label text-white" for="form2Example1">Email</label>
                   </div>
                   <!-- PASS -->
                   <div class="form-outline mb-4">
-                    <input type="password" id="signup-pass" class="form-control form-control-lg text-white" placeholder="Input your password" required/>
-                    <label class="form-label text-white" for="form2Example2">Password</label>
+                    <input type="password" id="signup-pass" class="form-control form-control-lg text-white" placeholder="Ingrese su contraseña" required/>
+                    <label class="form-label text-white" for="form2Example2">Contraseña</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="signup-name" class="form-control form-control-lg text-white" placeholder="Ingrese su Domicilio"/>
+                    <label class="form-label text-white" for="form2Example1">Domicilio</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="signup-name" class="form-control form-control-lg text-white" placeholder="Ingrese su Número de Teléfono"/>
+                    <label class="form-label text-white" for="form2Example1">Fono Contacto</label>
                   </div>
                   <!-- BUTTONS -->
-                  <button type="submit" class="btn-outline-warning btn-dark btn-lg px-5">Save changes</button>
-                  <button type="button" class="btn-outline-light btn-dark btn-lg px-5" data-mdb-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn-outline-warning btn-dark btn-lg px-5">Guardar Cambios</button>
+                  <button type="button" class="btn-outline-light btn-dark btn-lg px-5" data-mdb-dismiss="modal">Cancelar</button>
                 </form>
               </div>
             </div>
