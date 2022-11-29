@@ -101,7 +101,7 @@
           <button type="button" class="btn btn-outline-warning btn-rounded" id="logout">
             Cerrar Sesión
           </button>
-          <img src="./Senti.jpg" class="profile-icon hover-overlay" onclick="location.href='perfil.html'" alt="">
+          <img src="../Senti.jpg" class="profile-icon hover-overlay" onclick="location.href='perfil.html'" alt="">
         </ul>
       </div>
       <!-- Collapsible wrapper -->
@@ -177,69 +177,38 @@
       </div>
     </div>
 
-    <!--TAB 2-->
+    <!--TAB 2: PRODUCTOS-->
     <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
       <!--TABLA 1-->
       <table class="table align-middle mb-0 " style="margin-left: 2rem;margin-right: 2rem;" id="tablaproductos">
         <thead class="">
           <tr>
             <th class="text-warning">Nombre</th>
-            <th class="text-warning">Viene con</th>
+            <th class="text-warning">Descripción</th>
             <th class="text-warning">Precio</th>
             <th class="text-warning"></th>
           </tr>
         </thead>
         <tbody id="tablaproductos-body">
-          <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
-              <img class="product-image" src="Ely-finale1.png" alt="">
-            </td>
-            <td class="text-warning">100gr Papas fritas</td>
-            <td class="text-warning">$5000</td>
-            <td>
-              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Completo As</p>
-              <img class="product-image" src="Ely-finale1.png" alt="">
-            </td>
-            <td class="text-warning">100gr Papas fritas</td>
-            <td class="text-warning">$5000</td>
-            <td>
-              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Not Completo</p>
-              <img class="product-image" src="Ely-finale1.png" alt="">
-            </td>
-            <td class="text-warning">100gr Papas fritas</td>
-            <td class="text-warning">$5000</td>
-            <td>
-              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
-            </td>
-          </tr>
+          
         </tbody>
       </table>
     </div>
-    <!--TAB 3-->
+
+    <!--TAB 3: PROMOCIONES-->
     <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
       <!--TABLA 2-->
       <table class="table align-middle mb-0 " style="margin-left: 2rem;margin-right: 2rem;" id="tablapromociones">
         <thead class="">
           <tr>
             <th class="text-warning">Nombre</th>
-            <th class="text-warning">Viene con</th>
+            <th class="text-warning">Agregados</th>
             <th class="text-warning">Precio</th>
             <th class="text-warning"></th>
           </tr>
         </thead>
         <tbody id="tablapromociones-body">
-          <tr>
+          <!-- <tr>
             <td>
               <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
               <img class="product-image" src="Ely-finale1.png" alt="">
@@ -252,10 +221,11 @@
             <td>
               <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
+
   </div>
 <!-- Tabs content -->
 
@@ -266,6 +236,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
       ></script>
       <!-- Main -->
-      <script src="./mainPage.js" type="module"></script>
+      <script src="../main.js" type="module"></script>
 </body>
 </html>

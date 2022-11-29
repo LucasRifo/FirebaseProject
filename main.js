@@ -24,9 +24,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
 const db = getFirestore()
 const storage = getStorage();
+const auth = getAuth();
+const user = auth.currentUser
 const page = window.location;
 
 //CARRO DE COMPRAS
@@ -170,9 +171,89 @@ if (page.pathname == '/html/mainPage.html'){
       const errorMessage = error.message
     })
   })
+
+  const getProductos = () => query(collection(db,'Productos'))
+  const getPromociones = () => query(collection(db,'Promociones'))
+
+  window.addEventListener('DOMContentLoaded',async () =>{
+    //TABLA PRODUCTOS
+    let q1 = await getProductos()
+    var unsubscribe = onSnapshot(q1, (querySnapshot) =>{
+      let productContainer = document.getElementById('tablaproductos-body')
+      let html = ''
+      const productos = []
+      querySnapshot.forEach((doc)=>{
+        const producto = doc.data()
+        producto.ID = doc.id
+        productos.push(producto.Nombre)
+        html +=`
+          <tr>
+            <td>
+              <p class="text-warning" style="margin-left:5rem;">${producto.Nombre}</p>
+              <img
+              class="product-image
+              id = productpic"
+              data-pic = ${producto.foto}>
+            </td>
+            <td class="text-warning">${producto.Descripción}</td>
+            <td class="text-warning">\$${producto.Precio}</td>
+            <td>
+              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            </td>
+          </tr>
+        `
+      })
+      productContainer.innerHTML = html
+      const productpics = document.querySelectorAll('.productpic')
+      productpics.forEach(img => {
+        const imagen = ref(storage,img.dataset.pic)
+        getDownloadURL(imagen)
+        .then((url) => {
+          img.setAttribute('src',url)
+        })
+      })
+    })
+    let q2 = await getPromociones()
+    var unsubscribe = onSnapshot(q2, (querySnapshot) =>{
+      let promoContainer = document.getElementById('tablapromociones-body')
+      let html = ''
+      const promociones = []
+      querySnapshot.forEach((doc)=>{
+        const promocion = doc.data()
+        promocion.ID = doc.id
+        promociones.push(promocion.Nombre)
+        html +=`
+          <tr>
+            <td>
+              <p class="text-warning" style="margin-left:5rem;">${promocion.Nombre}</p>
+              <img
+              class="product-image
+              id = promopic"
+              data-pic="${promocion.foto}">
+            </td>
+            <td class="text-warning">
+              <p>${promocion.Agregados}</p>
+            </td>
+            <td class="text-warning">\$${promocion.Precio}</td>
+            <td>
+              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            </td>
+          </tr>
+        `
+      })
+      promoContainer.innerHTML = html
+      const promopics = document.querySelectorAll('.promopic')
+      promopics.forEach(img => {
+        const imagen = ref(storage,img.dataset.pic)
+        getDownloadURL(imagen)
+        .then((url) => {
+          img.setAttribute('src',url)
+        })
+      })
+    })
+  })
+
 }
-
-
 
 //MAINPAGE ADMIN
 if (page.pathname == '/html/mainPageAdmin.html'){
