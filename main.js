@@ -4,7 +4,7 @@ import  { getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
   TwitterAuthProvider, signInWithPopup, signOut  } from 
   "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";//Auth
 import { getFirestore, collection, query, orderBy, onSnapshot, addDoc,
-  deleteDoc, doc, getDoc, updateDoc } from
+  deleteDoc, doc, getDoc, updateDoc, where } from
   "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"//Firestore
 import { getStorage, ref, getDownloadURL } from 
   "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";//Storage
@@ -51,11 +51,20 @@ if (page.pathname == '/html/index.html'){
 
   onAuthStateChanged(auth, (user) =>{
     if (user) {
-      if (user.providerData[0].email == "lucasrifopena@gmail.com"){
-        window.location.href = "mainPageAdmin.html"
-      }else{
-        window.location.href = "mainPage.html"
-      }
+      const getAdmin = () => query(collection(db,"Users"),where("Nombre","==","Admin"));
+      const q = getAdmin()
+      const unsubscribe = onSnapshot(q,(querySnapshot)=>{
+        querySnapshot.forEach((doc)=>{
+          if (user.providerData[0].email == doc.data().Correo){
+            window.location.href = "mainPageAdmin.html"
+            // console.log("ADMIN")
+          }else{
+            window.location.href = "mainPage.html"
+            // console.log("ADMIN't")
+          }
+        })
+      })
+      
     } 
     else {
       console.log("user esta en null")
@@ -275,6 +284,8 @@ if (page.pathname == '/html/mainPageAdmin.html'){
 
   const getProductos = () => query(collection(db,'Productos'),orderBy("Nombre"))
   const getPromociones = () => query(collection(db,'Promociones'),orderBy("Nombre"))
+  // const Modal = document.getElementById("edit-promo")
+  // const modal = new mdb.Modal(editpromo)
 
   window.addEventListener('DOMContentLoaded',async () =>{
     //TABLA PRODUCTOS
