@@ -47,8 +47,20 @@ if (page.pathname == '/html/index.html'){
   const signupModal = document.getElementById('signupModal')
   const googleLogin = document.querySelector('#google_login')
   const FBLogin = document.querySelector('#facebook_login')
-  const twitterlogin = document.querySelector('#twitter_login')
   const modal = new mdb.Modal(signupModal)
+
+  onAuthStateChanged(auth, (user) =>{
+    if (user) {
+      if (user.providerData[0].email == "lucasrifopena@gmail.com"){
+        window.location.href = "mainPageAdmin.html"
+      }else{
+        window.location.href = "mainPage.html"
+      }
+    } 
+    else {
+      console.log("user esta en null")
+    }
+  })
 
   logInForm.addEventListener('submit',(e)=>{
       e.preventDefault();
@@ -57,7 +69,7 @@ if (page.pathname == '/html/index.html'){
       signInWithEmailAndPassword(auth, email, pass)
       .then(userCredential =>{
         logInForm.reset();
-        window.location.href = "mainPage.html"
+        // window.location.href = "mainPage.html"
         console.log("Sesion Iniciada")
       })
       .catch((error)=>{
@@ -86,41 +98,18 @@ if (page.pathname == '/html/index.html'){
     e.preventDefault()
     // const provider = new GoogleAuthProvider()
     const provider = new GoogleAuthProvider()
-    console.log(provider)
     signInWithPopup(auth, provider)
     .then(result =>{
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      window.location.href = "mainPage.html"
+      // window.location.href = "mainPage.html"
     })
     .catch((error) => {
       console.error(error)
       const errorCode = error.code;
       const errorMessage = error.message;
       const credential = GoogleAuthProvider.credentialFromError(error);
-    })
-  })
-
-  twitterlogin.addEventListener('click',e=>{
-    e.preventDefault()
-    const provider = new TwitterAuthProvider()
-    signInWithPopup(auth, provider)
-    .then((result)=>{
-      const credential = TwitterAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const secret = credential.secret;
-      const user = credential.user;
-      console.log(token)
-      console.log(secret)
-      console.log(user)
-    })
-    .catch((error)=>{
-      const errorCode = error.code
-      const errorMessage = error.message
-      const email = error.customData.email
-      const credential = TwitterAuthProvider.credentialFromError(error)
-      console.log('Error de Signup')
     })
   })
 
@@ -133,7 +122,7 @@ if (page.pathname == '/html/index.html'){
       const credential = FacebookAuthProvider.credentialFromResult(result);
       const accessToken = credential.accessToken;
       console.log('Inicio de Sesión con Facebook')
-      window.location.href = "mainPage.html"
+      // window.location.href = "mainPage.html"
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -154,7 +143,7 @@ if (page.pathname == '/html/mainPage.html'){
     } 
     else {
       console.log("user esta en null")
-      window.location.href = 'login.html'
+      window.location.href = '/html/index.html'
     }
   })
   
@@ -172,8 +161,8 @@ if (page.pathname == '/html/mainPage.html'){
     })
   })
 
-  const getProductos = () => query(collection(db,'Productos'))
-  const getPromociones = () => query(collection(db,'Promociones'))
+  const getProductos = () => query(collection(db,'Productos'),orderBy("Nombre"))
+  const getPromociones = () => query(collection(db,'Promociones'),orderBy("Nombre"))
 
   window.addEventListener('DOMContentLoaded',async () =>{
     //TABLA PRODUCTOS
