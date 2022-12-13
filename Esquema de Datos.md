@@ -1,0 +1,21 @@
+# Esquema de Datos
+
+- Productos
+  - Nombre: String
+  - Descripción: String
+  - Precio: String
+  - foto: String
+- Promociones
+  - Nombre: String
+  - Agregados: String
+  - Precio: String
+  - foto: String
+- Users
+  - Nombre: String
+  - Correo: String
+  - Contraseña: String
+  - Domicilio: String
+  - Telefono: String
+- FormaDePago
+  - Banco: String
+  - Débito-Crédito: String
