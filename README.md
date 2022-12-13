@@ -1,8 +1,11 @@
 # Proyecto del ramo
 
 General:
-- Logo
-- Paleta de colores
+- [x] Logo
+- [x] Paleta de colores
+  - 210,105,30
+  - 218,165,32
+  - 51,45,45
 - [x] Esquema de Datos
 
 Carro de Compras:
@@ -23,3 +26,9 @@ Próximamente
 - [x] Leer imágenes de Storage
 - [x] Conectar con colecciones de Firestore
 - [x] Esquema de datos
+
+Servicios operativos 13/12
+- Storage
+- Auth
+- Firestore
+- Hosting (Próximamente)

@@ -282,10 +282,61 @@ if (page.pathname == '/html/mainPageAdmin.html'){
     })
   })
 
+  const prodForm = document.getElementById('add-product-form')
+  const uptProdForm = document.getElementById('edit-producto-form')
+  const promoForm = document.getElementById('add-promo-form')
+  const uptPromoForm = document.getElementById('edit-promo-form')
+  // const modal = new mdb.Modal(edit-producto)
+
+
+
   const getProductos = () => query(collection(db,'Productos'),orderBy("Nombre"))
   const getPromociones = () => query(collection(db,'Promociones'),orderBy("Nombre"))
-  // const Modal = document.getElementById("edit-promo")
-  // const modal = new mdb.Modal(editpromo)
+  const getUsuarios = () => query(collection(db,'Users'),orderBy("Nombre"))
+
+  //agregar
+  const newProduct = (Nombre, foto, Descripción, Precio) => {
+    addDoc(collection(db,'Productos'), {Nombre, foto, Descripción, Precio})
+  }
+  const newPromo = (Nombre, foto, Descripción, Precio) => {
+    addDoc(collection(db,'Promociones'), {Nombre, foto, Descripción, Precio})
+  }
+  const newUser = (Nombre, Correo, Domicilio, Telefono) => {
+    addDoc(collection(db,'Usuarios'), {Nombre, Correo, Domicilio, Telefono})
+  }
+  
+  //borrar
+  const deleteProd = (id) => {
+    deleteDoc(doc(db,'Productos', id))
+  }
+  const deletePromo = (id) => {
+    deleteDoc(doc(db,'Promociones', id))
+  }
+  
+  //actualizar
+  const updateProd = (id, nnombre, nfoto, ndescripcion, nprecio) => {
+    updateDoc(doc(db,'Productos', id), {Nombre:nnombre, foto:nfoto, Descripción:ndescripcion, Precio:nprecio})
+  }
+  const updateProd2 = (id, nnombre, ndescripcion, nprecio) => {
+    updateDoc(doc(db,'Productos', id), {Nombre:nnombre,  Descripción:ndescripcion, Precio:nprecio})
+  }
+  const updatePromo = (id, nnombre, nfoto, ndescripcion, nprecio) => {
+    updateDoc(doc(db,'Promociones', id), {Nombre:nnombre, foto:nfoto, Descripción:ndescripcion, Precio:nprecio})
+  }
+  const updatePromo2 = (id, nnombre, ndescripcion, nprecio) => {
+    updateDoc(doc(db,'Promociones', id), {Nombre:nnombre, Descripción:ndescripcion, Precio:nprecio})
+  }
+  const updateUser = (id, nnombre, ncorreo, ndomicilio, ntelefono) => {
+    updateDoc(doc(db,'Usuarios', id), {Nombre:nnombre, Correo:ncorreo, Domicilio:ndomicilio, Telefono:ntelefono})
+  }
+  
+  //ID
+  const idProd= (id) => getDoc(doc(db,"Productos",id));
+  const idPromo= (id) => getDoc(doc(db,"Promociones",id));
+  const idUser= (id) => getDoc(doc(db,"Usuarios",id));
+
+  let updt = false;
+  let id = '';
 
   window.addEventListener('DOMContentLoaded',async () =>{
     //TABLA PRODUCTOS
@@ -310,7 +361,12 @@ if (page.pathname == '/html/mainPageAdmin.html'){
             <td class="text-warning">${producto.Descripción}</td>
             <td class="text-warning">\$${producto.Precio}</td>
             <td>
-              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            <div class="d-grid gap-2 col-1">
+                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning btn-update" data-id="${producto.ID}"
+                data-mdb-toggle="modal" data-mdb-target="#edit-producto">Editar</button>
+                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger btn-delete" data-id="${producto.ID}"
+                data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
+            </div>
             </td>
           </tr>
         `
@@ -324,7 +380,49 @@ if (page.pathname == '/html/mainPageAdmin.html'){
           img.setAttribute('src',url)
         })
       })
+
+      const lbdel = document.querySelectorAll('.btn-delete')
+      lbdel.forEach(btn => {
+        btn.addEventListener('click', async (e)=> {
+            let texto = "Borrar producto?"
+            if(confirm(texto)==true){
+                await deleteProd(e.target.dataset.id)
+            }
     })
+      })
+
+      const lbupd = document.querySelectorAll('.btn-update')
+      lbupd.forEach(btn => {
+        btn.addEventListener('click', async (e)=> {
+            updt=true;
+            const doc = await idProd(e.target.dataset.id)
+            id = doc.id
+            const producto = doc.data()
+            uptProdForm['edit-name-prod'].value = producto.Nombre
+            uptProdForm['edit-desc-prod'].value = producto.Descripción
+            uptProdForm['edit-precio-prod'].value = producto.Precio            
+            uptProdForm.addEventListener('submit', (e) =>{
+              e.preventDefault();
+              let foto = (ref(storage,producto.foto))
+              console.log(foto)
+              const nombre = document.querySelector('#edit-name-prod').value;
+              const descripcion = document.querySelector('#edit-desc-prod').value;
+              const precio = document.querySelector('#edit-precio-prod').value;
+              if(document.querySelector('#edit-img-prod').value != ''){
+                const foto = document.querySelector('#edit-img-prod').value;
+                updateProd(id, nombre, foto, descripcion, precio)
+              }
+              else{
+                updateProd2(id, nombre, descripcion, precio)
+              }
+              console.log('Informacion actualizada con exito')
+              //modal.hide()
+            })
+        })     
+    })
+
+    })
+    //TABLA PROMOCIONES
     let q2 = await getPromociones()
     var unsubscribe = onSnapshot(q2, (querySnapshot) =>{
       let promoContainer = document.getElementById('tablapromociones-body')
@@ -348,7 +446,12 @@ if (page.pathname == '/html/mainPageAdmin.html'){
             </td>
             <td class="text-warning">\$${promocion.Precio}</td>
             <td>
-              <button class="btn btn-outline-warning btn-dark btn-rounded text-warning">Agregar al Carro</button>
+            <div class="d-grid gap-3 col-3">
+                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
+                data-mdb-toggle="modal" data-mdb-target="#edit-promo">Editar</button>
+                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
+                data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
+            </div>
             </td>
           </tr>
         `
@@ -363,10 +466,70 @@ if (page.pathname == '/html/mainPageAdmin.html'){
         })
       })
     })
+
+    //TABLA USUARIOS
+    let q3 = await getUsuarios()
+    var unsubscribe = onSnapshot(q3, (querySnapshot) =>{
+      let userContainer = document.getElementById('tablausuarios-body')
+      let html = ''
+      const usuarios = []
+      querySnapshot.forEach((doc)=>{
+        const usuario = doc.data()
+        usuario.ID = doc.id
+        usuarios.push(usuario.Nombre)
+        html +=`
+        <tr>
+        <td>
+          <p class="text-warning" style="margin-left:5rem;">${usuario.Nombre}</p>
+        </td>
+        <td class="text-warning">
+          <p>${usuario.Correo}</p>
+        </td>
+        <td class="text-warning">${usuario.Domicilio}</td>
+        <td class="text-warning">${usuario.Teléfono}</td>
+        <td>
+            <div class="d-grid gap-3 col-3">
+                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
+                data-mdb-toggle="modal" data-mdb-target="#edit-promo">Editar</button>
+                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
+                data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
+            </div>
+        </td>
+      </tr>
+        `
+      })
+      userContainer.innerHTML = html
+     
+    })
   })
 }
 
 //PERFIL
 if (page.pathname == '/html/perfil.html'){
+  onAuthStateChanged(auth, (user) =>{
+    if (user) {
+      console.log(user.providerData[0].providerId)
+      if (user.providerData[0].providerId == 'google.com'){
+        console.log('logeado con google')
+      }
+    } 
+    else {
+      console.log("user esta en null")
+      window.location.href = '/html/index.html'
+    }
+  })
 
+  const logout = document.querySelector('#logout')
+  logout.addEventListener('click',(e)=>{
+    e.preventDefault()
+    signOut(auth)
+    .then(()=>{
+      console.log('Cerrando sesion')
+      window.location.href = 'index.html'
+    })
+    .catch((error)=>{
+      const errorCode = error.code
+      const errorMessage = error.message
+    })
+  })
 }

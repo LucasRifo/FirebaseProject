@@ -29,10 +29,10 @@
     <!-- Container wrapper -->
     <div class="container">
       <!-- Navbar brand -->
-      <a class="navbar-brand me-2" href="https://mdbgo.com/">
+      <a class="navbar-brand me-2" href="">
         <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="16"
+          src="/Imagenes/Logo.png"
+          height="100"
           alt="MDB Logo"
           loading="lazy"
           style="margin-top: -1px;"
@@ -90,6 +90,18 @@
               aria-controls="ex1-tabs-3"
               aria-selected="false"
               >Promociones</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link bg-dark text-warning"
+              id="ex1-tab-4"
+              data-mdb-toggle="tab"
+              href="#ex1-tabs-4"
+              role="tab"
+              aria-controls="ex1-tabs-4"
+              aria-selected="false"
+              >Usuarios</a
             >
           </li>
         </ul>
@@ -192,57 +204,8 @@
           </tr>
         </thead>
         <tbody id="tablaproductos-body">
-          <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
-              <img class="product-image" src="" alt="">
-            </td>
-            <td class="text-warning">rico completo</td>
-            <td class="text-warning">$5000</td>
-            <td>
-                <div class="d-grid gap-2 col-1">
-                  <!-- LE AGREGUE MODAL PARA CADA BOTON EDITAR DEL MOCKUP. 
-                  AL MOMENTO DE IMPLEMENTAR JS, GENERALIZAR COMO EN NOTEAPP
-                  LO MISMO CON EL BOTON DE EDITAR PROMO-->
-                    <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
-                    data-mdb-toggle="modal" data-mdb-target="#edit-producto">Editar</button>
-                    <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
-                    data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
-                </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Completo As</p>
-              <img class="product-image" src="" alt="">
-            </td>
-            <td class="text-warning">100gr Papas fritas</td>
-            <td class="text-warning">$5000</td>
-            <td>
-                <div class="d-grid gap-3 col-3">
-                    <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
-                    data-mdb-toggle="modal" data-mdb-target="#edit-producto">Editar</button>
-                    <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
-                    data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
-                </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Not Completo</p>
-              <img class="product-image" src="" alt="">
-            </td>
-            <td class="text-warning">100gr Papas fritas</td>
-            <td class="text-warning">$5000</td>
-            <td>
-                <div class="d-grid gap-3 col-3">
-                    <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
-                    data-mdb-toggle="modal" data-mdb-target="#edit-producto">Editar</button>
-                    <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
-                    data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
-                </div>
-            </td>
-          </tr>
+       
+          
         </tbody>
       </table>
     </div>
@@ -264,30 +227,81 @@
           </tr>
         </thead>
         <tbody id="tablapromociones-body">
+          
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+      <!--TABLA 4-->
+      <table class="table align-middle mb-0 " style="margin-left: 2rem;margin-right: 2rem;" id="tablausuarios">
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-secondary btn-dark btn-rounded text-warning"
+            data-mdb-toggle="modal" data-mdb-target="#add-user">Agregar nuevo usuario</button>
+        </div>
+        <thead class="">
           <tr>
-            <td>
-              <p class="text-warning" style="margin-left:5rem;">Completo Italiano</p>
-              <img class="product-image" src="" alt="">
-            </td>
-            <td class="text-warning">
-              <p>100gr Papas fritas</p>
-              <p>Gaseosa 300ml</p>
-            </td>
-            <td class="text-warning">$5000</td>
-            <td>
-                <div class="d-grid gap-3 col-3">
-                    <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
-                    data-mdb-toggle="modal" data-mdb-target="#edit-promo">Editar</button>
-                    <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
-                    data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
-                </div>
-            </td>
+            <th class="text-warning col-1">Nombre</th>
+            <th class="text-warning ">Email</th>
+            <th class="text-warning ">Domicilio</th>
+            <th class="text-warning ">Número de contacto</th>
+            <th class="text-warning "></th>
+            
           </tr>
+        </thead>
+        <tbody id="tablausuarios-body">
+          
         </tbody>
       </table>
     </div>
   </div>
 <!-- Tabs content -->
+
+<!-- Modal Agregar usuario-->
+<div class="modal fade" id="add-user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+style="opacity: 0.9;">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header" style="border-color: white; " >
+        <h5 class="modal-title text-warning" id="exampleModalLabel">Agregar usuario</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="background-color: white; color:black; border-color: white; ">
+        <form id="add-user-form">
+            <!-- Nombre input -->
+            <div class="form-outline mb-4">
+            <input type="text" id="add-name-user" class="form-control " placeholder="Ingrese Nombre" required />
+            <label class="form-label " for="form2Example1">Nombre</label>
+            </div>
+            
+            <!-- Correo input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="add-email-user" class="form-control " placeholder="Ingrese correo"
+                required />
+                <label class="form-label " for="form2Example2">Correo</label>
+            </div>
+            <!-- Domicilio input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="add-domicilio-user" class="form-control " placeholder="Ingrese domicilio"
+                required />
+                <label class="form-label " for="form2Example2">Domicilio</label>
+            </div>
+            <!-- Telefono input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="add-fono-user" class="form-control " placeholder="Ingrese número de contacto"
+              required />
+              <label class="form-label " for="form2Example2">Número de teléfono</label>
+          </div>
+
+            <!-- Button Submit -->
+            <button type="submit" class="btn btn-outline-success btn-dark btn-rounded" id="btn-add-prod">Guardar información</button>
+            <button type="button" class="btn btn-outline-danger btn-dark btn-rounded" data-mdb-dismiss="modal">Cancelar</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div> 
+
 <!-- Modal Agregar producto-->
 <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
 style="opacity: 0.9;">
@@ -354,7 +368,7 @@ style="opacity: 0.9;">
             <!--  Img input -->
             <div class="form-outline mb-4">
             <input type="file" id="edit-img-prod" class="form-control form-control-sm " placeholder="Ingrese imagen referencial"
-                required />
+                 />
             <label for="fromFileSm" class="form-label " for="form2Example2"></label>
             </div>
             
