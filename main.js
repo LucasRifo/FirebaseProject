@@ -286,8 +286,9 @@ if (page.pathname == '/html/mainPageAdmin.html'){
   const uptProdForm = document.getElementById('edit-producto-form')
   const promoForm = document.getElementById('add-promo-form')
   const uptPromoForm = document.getElementById('edit-promo-form')
+  const uptUserForm = document.getElementById('edit-user-form')
   // const modal = new mdb.Modal(edit-producto)
-
+  const userForm = document.getElementById('add-user-form')
 
 
   const getProductos = () => query(collection(db,'Productos'),orderBy("Nombre"))
@@ -301,8 +302,8 @@ if (page.pathname == '/html/mainPageAdmin.html'){
   const newPromo = (Nombre, foto, Descripción, Precio) => {
     addDoc(collection(db,'Promociones'), {Nombre, foto, Descripción, Precio})
   }
-  const newUser = (Nombre, Correo, Domicilio, Telefono) => {
-    addDoc(collection(db,'Usuarios'), {Nombre, Correo, Domicilio, Telefono})
+  const newUser = (Nombre, Correo, Domicilio, Teléfono) => {
+    addDoc(collection(db,'Users'), {Nombre, Correo, Domicilio, Teléfono})
   }
   
   //borrar
@@ -312,6 +313,9 @@ if (page.pathname == '/html/mainPageAdmin.html'){
   const deletePromo = (id) => {
     deleteDoc(doc(db,'Promociones', id))
   }
+  const deleteUser = (id) => {
+    deleteDoc(doc(db,'Users', id))
+  }
   
   //actualizar
   const updateProd = (id, nnombre, nfoto, ndescripcion, nprecio) => {
@@ -320,20 +324,20 @@ if (page.pathname == '/html/mainPageAdmin.html'){
   const updateProd2 = (id, nnombre, ndescripcion, nprecio) => {
     updateDoc(doc(db,'Productos', id), {Nombre:nnombre,  Descripción:ndescripcion, Precio:nprecio})
   }
-  const updatePromo = (id, nnombre, nfoto, ndescripcion, nprecio) => {
-    updateDoc(doc(db,'Promociones', id), {Nombre:nnombre, foto:nfoto, Descripción:ndescripcion, Precio:nprecio})
+  const updatePromo = (id, nnombre, nfoto, nagregados, nprecio) => {
+    updateDoc(doc(db,'Promociones', id), {Nombre:nnombre, foto:nfoto, Agregados:nagregados, Precio:nprecio})
   }
-  const updatePromo2 = (id, nnombre, ndescripcion, nprecio) => {
-    updateDoc(doc(db,'Promociones', id), {Nombre:nnombre, Descripción:ndescripcion, Precio:nprecio})
+  const updatePromo2 = (id, nnombre, nagregados, nprecio) => {
+    updateDoc(doc(db,'Promociones', id), {Nombre:nnombre, Agregados:nagregados, Precio:nprecio})
   }
-  const updateUser = (id, nnombre, ncorreo, ndomicilio, ntelefono) => {
-    updateDoc(doc(db,'Usuarios', id), {Nombre:nnombre, Correo:ncorreo, Domicilio:ndomicilio, Telefono:ntelefono})
+  const updateUser = (id, nnombre, ncorreo, ndomicilio, nTeléfono) => {
+    updateDoc(doc(db,'Users', id), {Nombre:nnombre, Correo:ncorreo, Domicilio:ndomicilio, Teléfono:nTeléfono})
   }
   
   //ID
   const idProd= (id) => getDoc(doc(db,"Productos",id));
   const idPromo= (id) => getDoc(doc(db,"Promociones",id));
-  const idUser= (id) => getDoc(doc(db,"Usuarios",id));
+  const idUser= (id) => getDoc(doc(db,"Users",id));
 
   let updt = false;
   let id = '';
@@ -363,9 +367,10 @@ if (page.pathname == '/html/mainPageAdmin.html'){
             <td>
             <div class="d-grid gap-2 col-1">
                 <button class="btn btn-outline-warning btn-dark btn-rounded text-warning btn-update" data-id="${producto.ID}"
-                data-mdb-toggle="modal" data-mdb-target="#edit-producto">Editar</button>
-                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger btn-delete" data-id="${producto.ID}"
-                data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
+                data-mdb-toggle="modal" data-mdb-target="#edit-producto"
+                data-id="${producto.ID}">Editar</button>
+                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger btn-delete"
+                data-id="${producto.ID}">Eliminar</button>
             </div>
             </td>
           </tr>
@@ -386,9 +391,9 @@ if (page.pathname == '/html/mainPageAdmin.html'){
         btn.addEventListener('click', async (e)=> {
             let texto = "Borrar producto?"
             if(confirm(texto)==true){
-                await deleteProd(e.target.dataset.id)
+               deleteProd(e.target.dataset.id)
             }
-    })
+        })
       })
 
       const lbupd = document.querySelectorAll('.btn-update')
@@ -447,10 +452,10 @@ if (page.pathname == '/html/mainPageAdmin.html'){
             <td class="text-warning">\$${promocion.Precio}</td>
             <td>
             <div class="d-grid gap-3 col-3">
-                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
-                data-mdb-toggle="modal" data-mdb-target="#edit-promo">Editar</button>
+                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning btn-update"
+                data-mdb-toggle="modal" data-mdb-target="#edit-promo" data-id="${promocion.ID}">Editar</button>
                 <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
-                data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
+                data-mdb-toggle="modal" data-mdb-target="#delete-pro" data-id="${promocion.ID}">Eliminar</button>
             </div>
             </td>
           </tr>
@@ -465,6 +470,37 @@ if (page.pathname == '/html/mainPageAdmin.html'){
           img.setAttribute('src',url)
         })
       })
+
+      const lbupd = document.querySelectorAll('.btn-update')
+      lbupd.forEach(btn => {
+        btn.addEventListener('click', async (e)=> {
+            updt=true;
+            const doc = await idPromo(e.target.dataset.id)
+            id = doc.id
+            
+            const promocion = doc.data()
+            uptPromoForm['edit-name-promo'].value = promocion.Nombre
+            uptPromoForm['edit-agr-promo'].value = promocion.Agregados
+            uptPromoForm['edit-precio-promo'].value = promocion.Precio            
+            uptPromoForm.addEventListener('submit', (e) =>{
+              e.preventDefault();
+              let foto = (ref(storage,promocion.foto))
+              console.log(foto)
+              const nombre = document.querySelector('#edit-name-promo').value;
+              const agregado = document.querySelector('#edit-agr-promo').value;
+              const precio = document.querySelector('#edit-precio-promo').value;
+              if(document.querySelector('#edit-img-promo').value != ''){
+                const foto = document.querySelector('#edit-img-promo').value;
+                updatePromo(id, nombre, foto, agregado, precio)
+              }
+              else{
+                updatePromo2(id, nombre, agregado, precio)
+              }
+              console.log('Informacion actualizada con exito')
+              //modal.hide()
+            })
+        })     
+    })
     })
 
     //TABLA USUARIOS
@@ -474,7 +510,7 @@ if (page.pathname == '/html/mainPageAdmin.html'){
       let html = ''
       const usuarios = []
       querySnapshot.forEach((doc)=>{
-        const usuario = doc.data()
+        let usuario = doc.data()
         usuario.ID = doc.id
         usuarios.push(usuario.Nombre)
         html +=`
@@ -489,18 +525,66 @@ if (page.pathname == '/html/mainPageAdmin.html'){
         <td class="text-warning">${usuario.Teléfono}</td>
         <td>
             <div class="d-grid gap-3 col-3">
-                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning"
-                data-mdb-toggle="modal" data-mdb-target="#edit-promo">Editar</button>
-                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger"
-                data-mdb-toggle="modal" data-mdb-target="#delete-pro">Eliminar</button>
+                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning btn-update-user"
+                data-mdb-toggle="modal" data-mdb-target="#edit-user"
+                data-id="${usuario.ID}">Editar</button>
+                <button class="btn btn-outline-danger btn-dark btn-rounded text-danger btn-delete-user"
+                data-id="${usuario.ID}">Eliminar</button>
             </div>
         </td>
       </tr>
         `
       })
       userContainer.innerHTML = html
+
+      const lbdel = document.querySelectorAll('.btn-delete-user')
+      lbdel.forEach(btn => {
+        btn.addEventListener('click', async (e)=> {
+          let texto = "Borrar usuario?"
+          if(confirm(texto)==true){
+            deleteUser(e.target.dataset.id)
+          } 
+      }) 
+      })
+
+      const lbupd = document.querySelectorAll('.btn-update-user')
+      lbupd.forEach(btn => {
+        btn.addEventListener('click', async (e)=> {
+            updt=true;
+            const doc = await idUser(e.target.dataset.id)
+            id = doc.id
+            const usuario = doc.data()
+            uptUserForm['edit-name-user'].value = usuario.Nombre
+            uptUserForm['edit-email-user'].value = usuario.Correo
+            uptUserForm['edit-dom-user'].value = usuario.Domicilio            
+            uptUserForm['edit-fono-user'].value = usuario.Teléfono  
+            uptUserForm.addEventListener('submit', (e) =>{
+              e.preventDefault();
+              
+              const nombre = document.querySelector('#edit-name-user').value;
+              const correo = document.querySelector('#edit-email-user').value;
+              const domicilio = document.querySelector('#edit-dom-user').value;
+              const fono = document.querySelector('#edit-fono-user').value;
+              updateUser(id, nombre, correo, domicilio, fono)
+              console.log('Informacion actualizada con exito')
+              //modal.hide()
+            })
+        })     
+    })
      
     })
+    //AGREGAR USUARIO
+    userForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const nombre = userForm['add-name-user']
+      const correo = userForm['add-email-user']
+      const domicilio = userForm['add-domicilio-user']
+      const fono = userForm['add-fono-user']
+      newUser(nombre.value, correo.value, domicilio.value, fono.value)
+      userForm.reset()
+      console.log('agregado')
+    })
+
   })
 }
 
