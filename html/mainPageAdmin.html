@@ -236,7 +236,7 @@
       <!--TABLA 4-->
       <table class="table align-middle mb-0 " style="margin-left: 2rem;margin-right: 2rem;" id="tablausuarios">
         <div class="text-center">
-            <button type="submit" class="btn btn-outline-secondary btn-dark btn-rounded text-warning"
+            <button href="#add-user" class="btn btn-outline-secondary btn-dark btn-rounded text-warning" 
             data-mdb-toggle="modal" data-mdb-target="#add-user">Agregar nuevo usuario</button>
         </div>
         <thead class="">
@@ -301,6 +301,49 @@ style="opacity: 0.9;">
     </div>
     </div>
 </div> 
+
+<!-- Modal Editar usuario-->
+<div class="modal fade" id="edit-user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+style="opacity: 0.9;">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header" style="border-color: white; " >
+        <h5 class="modal-title text-warning" id="exampleModalLabel">Editar promocion</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="background-color: white; color:black; border-color: white; ">
+        <form id="edit-user-form">
+            <!-- Nombre input -->
+            <div class="form-outline mb-4">
+            <input type="text" id="edit-name-user" class="form-control " placeholder="Ingrese nombre de la promocion" required />
+            <label class="form-label " for="form2Example1">Nombre</label>
+            </div>
+            <!-- Correo input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="edit-email-user" class="form-control " placeholder="Ingrese nombre de la promocion" required />
+              <label class="form-label " for="form2Example1">Correo</label>
+            </div>
+            <!-- Domicilio input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="edit-dom-user" class="form-control " placeholder="Ingrese descripcion de la promocion"
+                required />
+                <label class="form-label " for="form2Example2">Domicilio</label>
+            </div>
+            <!-- Teléfono input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="edit-fono-user" class="form-control " placeholder="Ingrese precio de la promocion"
+                required />
+                <label class="form-label " for="form2Example2">Teléfono</label>
+            </div>
+
+            <!-- Button Submit -->
+            <button type="submit" class="btn btn-outline-success btn-dark btn-rounded" id="btn-edit-promo">Guardar información</button>
+            <button type="button" class="btn btn-outline-danger btn-dark btn-rounded" data-mdb-dismiss="modal">Cancelar</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
 
 <!-- Modal Agregar producto-->
 <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
@@ -420,9 +463,9 @@ style="opacity: 0.9;">
             
             <!-- Desc input -->
             <div class="form-outline mb-4">
-                <input type="text" id="add-desc-promo" class="form-control " placeholder="Ingrese descripcion de la promocion"
+                <input type="text" id="add-agr-promo" class="form-control " placeholder="Ingrese descripcion de la promocion"
                 required />
-                <label class="form-label " for="form2Example2">Descripción</label>
+                <label class="form-label " for="form2Example2">Agregados</label>
             </div>
             <!-- Precio input -->
             <div class="form-outline mb-4">
@@ -460,15 +503,15 @@ style="opacity: 0.9;">
             <!--  Img input -->
             <div class="form-outline mb-4">
             <input type="file" id="edit-img-promo" class="form-control form-control-sm " placeholder="Ingrese imagen referencial"
-                required />
+                 />
             <label for="fromFileSm" class="form-label " for="form2Example2"></label>
             </div>
             
             <!-- Desc input -->
             <div class="form-outline mb-4">
-                <input type="text" id="edit-desc-promo" class="form-control " placeholder="Ingrese descripcion de la promocion"
+                <input type="text" id="edit-agr-promo" class="form-control " placeholder="Ingrese descripcion de la promocion"
                 required />
-                <label class="form-label " for="form2Example2">Descripción</label>
+                <label class="form-label " for="form2Example2">Agregados</label>
             </div>
             <!-- Precio input -->
             <div class="form-outline mb-4">
@@ -486,20 +529,20 @@ style="opacity: 0.9;">
     </div>
 </div>
 
-<!-- Modal Eliminar-->
+<!-- Modal Eliminar
 <div class="modal fade" id="delete-pro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
 style="opacity: 0.9;">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header" style="border-color: white; " >
-        <h5 class="modal-title text-warning" id="exampleModalLabel">Editar promocion</h5>
+        <h5 class="modal-title text-warning" id="exampleModalLabel"></h5>
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="background-color: white; color:black; border-color: white; ">
           
           <form id="delete-form">
-            <!-- Button Submit -->
-            <div class="form-outline mb-4"></div>
+            Button Submit -->
+            <!-- <div class="form-outline mb-4"></div>
             <p>Está seguro?</p>
             <button type="submit" class="btn btn-outline-success btn-dark btn-rounded" id="btn-delete-pro">si</button>
             <button type="button" class="btn btn-outline-danger btn-dark btn-rounded" data-mdb-dismiss="modal">no</button>
@@ -507,7 +550,7 @@ style="opacity: 0.9;">
         </div>
     </div>
     </div>
-</div>
+</div> -->
 
 
   <!--Scripts-->
