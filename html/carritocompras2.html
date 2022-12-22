@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Font Awesome -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
+     />
+     <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"
+     />
+     <!-- MDB -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
+     <!-- Hoja de Estilos -->
+     <link rel="stylesheet" href="../css/carritostyle.css">
+     <link rel="stylesheet" href="../css/style.css"/>
+     <title>Carrito de compras</title>
+</head>
+<body>
+    <section class="gradient-custom">
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-0">
+                <form id="formaPago" class="mb-5">
+                
+                    <div class="card" style="border-radius: 1rem">
+                        <div class="card-body text-warning bg-dark p-6" style="border-radius: 1rem">
+                            <div class="row">
+                                        <div class="form-outline mb-5">
+                                            <input type="text" id="typeText" class="form-control form-control-lg text-warning" size="17"
+                                            value="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                            <label class="form-label text-warning" for="typeText">Número de tarjeta</label>
+                                        </div>
+                        
+                                        <div class="form-outline mb-5">
+                                            <input type="text" id="typeName" class="form-control form-control-lg text-warning" size="17"
+                                            value="John Smith" />
+                                            <label class="form-label text-warning" for="typeName">Nombre de la tarjeta</label>
+                                        </div>
+                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-5">
+                                            <div class="form-outline">
+                                                <input type="text" id="typeExp" class="form-control form-control-lg text-warning" value="01/22"
+                                                size="7" id="exp" minlength="7" maxlength="7" />
+                                                <label class="form-label text-warning" for="typeExp">Exp</label>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-6 mb-5">
+                                            <div class="form-outline">
+                                                <input type="password" id="typeTet" class="form-control form-control-lg text-warning"
+                                                value="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                                <label class="form-label text-warning" for="typeText">Cvv</label>
+                                            </div>
+                                            </div>
+                                        </div>
+                        
+                                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit <a
+                                            href="#!" class="text-warning">obcaecati sapiente</a>.</p>
+                                        <div class="" style="text-align: center;">
+                                            <button id="boton-compra" type="button" class="btn btn-outline-warning btn-dark btn-rounded" style="width: 25rem;">Confirmar compra</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <button class="btn btn-outline-warning btn-rounded btn-dark" type="button" onclick="location.href='mainPage.html'"><i class="fa fa-cart-shopping"></i>
+                            Volver al menú
+                          </button>
+                       
+            </div>
+        </div>
+    </section>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+</body>
+</html>
