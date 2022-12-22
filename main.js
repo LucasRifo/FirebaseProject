@@ -24,7 +24,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore()
+const db = getFirestore();
 const storage = getStorage();
 const auth = getAuth();
 const user = auth.currentUser
@@ -32,7 +32,11 @@ const page = window.location;
 
 //CARRO DE COMPRAS
 if (page.pathname == '/html/carritocompras.html'){
+  
+}
 
+if (page.pathname == '/html/carritocompras2.html'){
+ 
 }
 
 //ESTADO DEL PEDIDO
@@ -366,7 +370,7 @@ if (page.pathname == '/html/mainPageAdmin.html'){
             <td class="text-warning">\$${producto.Precio}</td>
             <td>
             <div class="d-grid gap-2 col-1">
-                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning btn-update" data-id="${producto.ID}"
+                <button class="btn btn-outline-warning btn-dark btn-rounded text-warning btn-update" 
                 data-mdb-toggle="modal" data-mdb-target="#edit-producto"
                 data-id="${producto.ID}">Editar</button>
                 <button class="btn btn-outline-danger btn-dark btn-rounded text-danger btn-delete"
@@ -468,6 +472,16 @@ if (page.pathname == '/html/mainPageAdmin.html'){
         getDownloadURL(imagen)
         .then((url) => {
           img.setAttribute('src',url)
+        })
+      })
+
+      const lbdel = document.querySelectorAll('.btn-delete')
+      lbdel.forEach(btn => {
+        btn.addEventListener('click', async (e)=> {
+            let texto = "Borrar promoción?"
+            if(confirm(texto)==true){
+               deletePromo(e.target.dataset.id)
+            }
         })
       })
 
