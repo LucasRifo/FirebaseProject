@@ -9,7 +9,6 @@ General:
 - [x] Esquema de Datos
 
 Carro de Compras:
-- Esconder formulario de pago hasta hacer click en el método de pago (REDISEÑAR)
 - [x] Colección forma de pago
   - Débito/Crédito
   - Bancos
@@ -31,4 +30,4 @@ Servicios operativos 13/12
 - Storage
 - Auth
 - Firestore
-- Hosting (Próximamente)
+- Hosting
